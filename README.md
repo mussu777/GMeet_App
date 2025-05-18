@@ -1,151 +1,111 @@
-# Grocery Delivery App
+# G-Meet App
 
-The **Grocery Delivery App** is a full-stack cross-platform mobile solution designed to connect customers with delivery partners in real-time. Developed using React Native and Node.js, it streamlines the process of grocery ordering, live tracking, and optimized delivery through seamless user interfaces and live location updates. With Socket.io-powered communication and Google Maps integration, the app delivers a fast, reliable, and engaging user experience for both customers and delivery personnel. It simplifies everyday shopping and enhances delivery efficiency.
+The **Meet App** is a real-time, cross-platform video calling solution built with React Native and powered by Zustand for sleek state management. It enables seamless group communication through unique Meet IDs, offering an intuitive and responsive user interface. With features like camera switching, mute/unmute controls, and optimized performance, Meet ensures smooth, lag-free video calls anytime, anywhere. Whether for remote meetings or casual catchups, Meet delivers a fast, interactive, and modern video conferencing experience on mobile.
 
 ## Key Features
 
-1. **Dual Role-Based Authentication**: Secure login system for both customers and delivery partners using unique credentials..
-2. **Real-Time Order Tracking with Socket.io**:
-   - Enables continuous, bi-directional communication between customer and delivery partner.
-   - Customers can track their grocery orders live, with status updates at every stage.
-3. **Live GPS Location & Google Maps Integration**:
-   - Delivery partners’ real-time location is fetched using GPS and plotted on Google Maps.
-   - Provides turn-by-turn navigation and dynamically optimized routes.
-4. **Interactive UI with Smooth Animations**:
-   - Built with React Native animations to offer a fluid, responsive, and modern app experience.
-   - Elevates usability with subtle transitions and visual feedback.
-5. **Smart Order Management System**:
-   - Customers can browse grocery items, manage their carts, and place orders with ease.
-   - Delivery partners receive and update order statuses in real time for operational efficiency.
-6. **Scalable Backend with Secure APIs**:
-   - Backend powered by Node.js + Express with Socket.io for live updates.
-   - Secure REST APIs handle authentication, order processing, and user data, designed to scale with traffic and growth.
+1. **Dual Role-Based Authentication with JWT**: 
+   - Ensures secure user identity management on both client and server.
+   - Enabling authenticated access to protected video rooms and actions.
+2. **Real-Time Video Calling with WebRTC + Socket.io**:
+   - Empowers seamless, low-latency peer-to-peer communication via react-native-webrtc. 
+   - Socket.io is used for signaling and user connection updates.
+3. **Scalable State Management via Zustand**:
+   - Lightweight and performant state management with Zustand.
+   - It ensures real-time UI responsiveness without boilerplate.
+4. **Camera & Media Permissions:**:
+   - Dynamic access to camera and microphone using react-native-permissions, with user controls for toggling video/audio streams.
+5. **High-Performance Multimedia Streaming:**:
+   - Built using react-native-webrtc for direct media streaming.
+   - Allows multi-user real-time calls with optimized bandwidth usage.
+6. **Real-Time Status and Room Handling**:
+   - Join via unique Meet ID and manage room presence dynamically with socket.io-backed communication.
+7. **Robust Server-Side Integration with Express + Mongoose**:
+   - Backend built with Node.js and Express, using MongoDB (via Mongoose) to store user sessions, tokens, and room data, ensuring reliability and scalability.
+
+
    
 ## Screens and Workflow
 
-![Image 1](https://drive.google.com/uc?export=view&id=16LZ-NOdvOq77lP4y4K2RgqmpPzjLG3wj)
-![Image 2](https://drive.google.com/uc?export=view&id=1IXAzEUvLbrvq5XqfG-11OANHZYtgysXG)
-![Image 3](https://drive.google.com/uc?export=view&id=1Phpzi7kXXiYkNHZnuxRGpy1tSF1TJIq_)
-![Image 4](https://drive.google.com/uc?export=view&id=1TXsCyrURKpu9Z1JsrGZ_hwlqpPL0Nbyl)
+![First collection](https://drive.google.com/uc?export=view&id=191oDU8vU1Xfw_Wk10q87eccSHqYC4iVZ)
+![Second collection](https://drive.google.com/uc?export=view&id=1g0mZYEGrHbfHg-3BGQL5w6zxEG4RAPx1)
 
 
-1. **Login Screen**: 
-   - Users log in with a mobile number assigned to them.
-   - In top right delivery partners can login by clicking on riding moto button.
+1. **Profile Screen**: 
+   - Takes name and image url from new user.
    
-2. **Home Screen**:
-   - Automatically set location after giving the location permission.
-   - Contains profile icon where we can logout and see personal details.
-   - A smooth carousel experience and a wide selection of grocery items ready to be explored and purchased with a tap.
-   - A responsive HOC keeps users informed with real-time order statuses — Available or Delivered.
+2. **Permission Screen**:
+   - Requires permission for audio and video.
 
-3. **Add To Cart Screen**:
-   - Tapping a grocery category takes users to the Add to Cart page, where they can easily add or remove items.
-   - Adjust quantities effortlessly and proceed smoothly to the next step in the checkout journey.
+3. **Home Screen**:
+   - Contains profile button to change personal information.
+   - Join button to create new meetings.
 
-4. **Place Order Screen**:
-   - Its a order details page where we can increse or decrese the quantity and also contains the bill details.
-   - Below we can see our location and a button which contain total price and place order option.
+4. **Create Meet Screen**:
+   - Contains button for new meetings and input field to accept meeting id created by other users. 
    
-5. **Order Complete Screen**:
-   - Shows the confirmation of order with a check tick and address of user.
+5. **Joining Screen**:
+   - Displays the meet id with audio/video icon and a join button to finally join meeting.
 
-6. **Map Screen**:
-   - Track your order in real-time with a dotted-line map view showing both user location and the branch.
+6. **Meet Screen**:
+   - Displays the meet id which can be share to others and an end button to turnoff meeting.
 
-7. **Order Summary Screen**:
-   - Current order details are given with all fares and tax.
+7. **Camera Screen**:
+   - Contains a flip button at top to switch camera.
 
-8. **Profile Screen**:
-   - Profile details, past and current order with status can be seen.
-
-9. **Delivery Login Screen**:
-   - Delivery partner can login by their assigned email and password.
-
-10. **Order Available Screen**:
-    - It's a delivery partner home screen where newly placed available order can be seen.
-
-11. **Order Delivered Screen**:
-    - It's a delivery partner home screen where past delivered order can be seen.
-
-12. **Accept Order Screen**:
-    - Map containing real time location of delivery partner and an option of accept order.
-
-13. **Order Accepted Screen**:
-    - Shows the popup when the delvery partner accept order to deliver.
-
-14. **Order Picked Up Screen**:
-    - After accepting order picked up screen will be there where deilvery partner can pick up their order from the branch showing in map.
-
-15. **Complete Delivered Screen**:
-    - Reaching the destination of user through real time location delivery partner has deliverd option which make the order complete.
 
 
 ## Technology Stack
 
 ### Client-side (Cross-Platform - React Native)
 
-- **Language**: JavaScript & TypeScript.
+- **Language**: JavaScript.
 - **Architecture**: Component-based with Zustand for state management and modular design for scalability.
 - **Libraries & Utilities**:
-  - **React Navigation**: For stack-based and tab-based screen navigation.
-  - **Zustand**: Lightweight state management for predictable app behavior.
-  - **Axios**: For handling HTTP requests to backend APIs..
-  - **JWT Decode**: To decode and validate JWT tokens for authentication.
-  - **Component-based Architecture**: Enables reusable components throughout the app.
-  - **MMKV**: Fast, persistent key-value storage used for caching and auth state.
-  - **Lottie React Native**: To add engaging animations for user feedback.
-  - **Reanimated & Gesture Handler**: For creating fluid, interactive UI transitions.
-  - **React Native Maps**: For displaying real-time map data with branch and delivery locations.
-  - **Maps Directions**: Integrates with Google Maps for route paths.
-  - **Geolocation**: To fetch the user’s current GPS coordinates.
+  - **Zustand**: Minimal yet powerful state management for syncing real-time call status, authentication, and UI state with ease.
+  - **Axios**: Used for making secure API calls and fetching remote data.
+  - **React Native WebRTC**: Core engine for real-time peer-to-peer video and audio communication — crucial for building a Google Meet clone.
+  - **Socket.io Client**: Enables low-latency, bi-directional signaling for session control and live user interactions.
+  - **MMKV Storage**: Ultra-fast local storage used for caching auth tokens and maintaining session persistence.
+  - **React Navigation (Native Stack)**: Efficient screen navigation designed for performance-critical, real-time applications.
+  - **Reanimated + Gesture Handler**: Provides smooth, native-like transitions and interactive animations — enhancing UX during meetings.
+  - **UUID**: Generates cryptographically secure meeting room IDs and participant identifiers to ensure uniqueness and privacy.
+  - **React Native Permissions**: Dynamically handles runtime permissions for camera and mic access — essential for secure video calls.
 
-### Server-side (Node.js with Fastify & AdminJS)
+### Server-side (Node.js with Express.js)
 
 - **Language**: JavaScript.
 - **Architecture**: Modular architecture with separation of concerns (controllers, middleware, models, routes).
 - **Runtime**: Node.js.
-- **Framework**: Fastify — lightweight and fast web framework.
-- **Admin Panel**: AdminJS — for admin dashboard and resource management.
-- **Database**: MongoDB — used via mongoose ODM.
-- **Authentication**: JWT (jsonwebtoken) and session management with @fastify/session and @fastify/cookie.
-- **Real-Time Communication**: fastify-socket.io — WebSocket support.
+- **Framework**: Express.js — lightweight and flexible web application framework.
+- **Real-Time Communication**: socket.io — enables WebSocket-based real-time communication for features like live meetings, chat, and status updates.
+- **Database**: MongoDB — used with Mongoose ODM for schema-based, structured data access and validation.
+- **Error Handling**: express-async-errors — simplifies error handling in async route handlers.
 
 - **APIs**:
-  - `POST /customer/login` - Logs in a customer.
-  - `POST /delivery/login` – Logs in a delivery partner.
-  - `POST /refresh-token` – Refreshes access token.
-  - `GET /user` – Retrieves authenticated user details.
-  - `PATCH /user` – Updates authenticated user details.
-  - `POST /order` – Creates a new order.
-  - `GET /order` – Retrieves all orders.
-  - `PATCH /order/:orderId/status` – Updates the status of a specific order.
-  - `POST /order/:orderId/confirm` – Confirms a specific order.
-  - `GET /order/:orderId` – Retrieves a specific order by ID.
-  - `GET /categories` – Retrieves all product categories.
-  - `GET /products/:categoryId` – Retrieves products by category ID.
+  - `POST /create-session` - Creates a new WebRTC session with a unique session ID.
+  - `GET /is-alive` — Checks if a session with the given sessionId is active/existing.
 
 ### Usage
 
-1. Open the app and log in using provided credentials.
-2. Provide Permission for location, click on products to purchase.
-3. Then add to cart page will appear, add items and place order.
-4. Delivery Partner will log in using provided credentials.
-5. In delivery partner home screen order will be available there under available section. 
-6. Accept the available order and deliver it to the user from the given branch.
+1. Open the app and build your profile.
+2. Provide Permission for audio/camera.
+3. Click on join button to start new meeting or join others meeting
+4. Mute/Unmute, toggle on/off camera, flip camera and end meeting button in live meet screen.
 
 ## Project Structure
 
 ### Client (Cross-Platform - React Native)
  
-- **Assets**: Contains static files such as images, icons, and fonts used across the application.
-- **Components**: Houses reusable UI components like buttons, search bar, tab bar etc.
-- **Features**: Includes feature-specific logic, components, and state handling for individual application modules.
-- **Navigation**: Manages route definitions and navigation-related logic.
-- **Service**: Contains functions and modules responsible for API calls and backend interaction.
-- **State**: Manages global state using tools like Zustand.
-- **Styles**: Stores global and shared styles, including CSS/SCSS files and theme definitions.
-- **Utils**: Provides utility/helper functions used throughout the application.
+- **Assets**: Stores static resources like images, icons, and fonts used globally.
+- **Components**: Contains reusable UI components such as buttons, inputs, and modals.
+- **Hooks**: Custom React hooks for managing complex logic and side effects across the app.
+- **Navigation**: Defines app navigation stacks and tab navigators for smooth screen transitions.
+- **Screens**: Holds feature-specific screens representing distinct views in the app.
+- **Styles**: Centralized styling files for consistent theming and UI design.
+- **Utils**: Utility functions and helpers that support common operations throughout the app.
+
+
 
 ### Server (Node.js with Fastify & AdminJS)
 
