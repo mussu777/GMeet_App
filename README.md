@@ -106,11 +106,11 @@ The **Meet App** is a real-time, cross-platform video calling solution built wit
 - **Utils**: Utility functions and helpers that support common operations throughout the app.
 
 
+### Server (Node.js with Express.js)
 
-### Server (Node.js with Fastify & AdminJS)
 
-- **Config Layer**: The config folder sets up database connection, session storage, admin panel configuration, and authentication logic.
-- **Controller Layer**: The controller folder handles business logic for authentication, order management, product retrieval, and user tracking.
-- **Middleware Layer**: The middleware layer handles request validation, verifying JWT access tokens for protected routes.
-- **Model Layer**: The model layer defines Mongoose schemas for core entities like branch, category, counter, order, product, and user, centralizing the application's data structure.
-- **Routes Layer**: The routes folder defines Fastify route handlers for different modules organizing the API endpoints.
+- **Config Layer**: Manages essential configurations such as database connection and environment variables.
+- **Controllers**: Contains core business logic handling API requests and WebSocket signaling for real-time communication.
+- **Errors**: Centralizes custom error classes and error handling utilities for consistent error responses.
+- **Middlewares**: Implements request validation, error handling, and other reusable middleware functions.
+- **Models**: Defines Mongoose schemas and data models for sessions and other persistent entities.
